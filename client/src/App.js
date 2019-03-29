@@ -23,6 +23,9 @@ export default class App extends Component {
     return (
       <div>
         <SavedList list={this.state.savedList} />
+        {/* Make as an exact path or the MovieList will continously show no
+        matter where you are in the website(List will continue to show and you cant isolate
+        each movie.) */}
         <Route path="/" exact component={MovieList} />
         <Route path="/movies/:id" component={Movie} />
       </div>
