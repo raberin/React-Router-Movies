@@ -27,10 +27,12 @@ export default class MovieList extends Component {
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (
-          // This "Link" tag is used to wrap around each movie item. The 'to' is basically the href in a tag.
+          // This "Link" tag is used to wrap around each movie item. The 'to' is basically the href in <a> tag.
           //Used template literals to add in the id so that i has access all id in the list. Makes the id dynamic.
           <Link to={`/movies/${movie.id}`}>
-            <MovieCard key={movie.id} movie={movie} />
+            <div className="save-wrapper">
+              <MovieCard key={movie.id} movie={movie} />
+            </div>
           </Link>
         ))}
       </div>

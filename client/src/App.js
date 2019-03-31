@@ -26,8 +26,18 @@ export default class App extends Component {
         {/* Make as an exact path or the MovieList will continously show no
         matter where you are in the website(List will continue to show and you cant isolate
         each movie.) */}
-        <Route path="/" exact component={MovieList} />
-        <Route path="/movies/:id" component={Movie} />
+        <Route
+          path="/"
+          exact
+          component={MovieList}
+          addToSavedList={this.addToSavedList}
+        />
+        <Route
+          path="/movies/:id"
+          render={props => (
+            <Movie addToSavedList={this.addToSavedList} {...props} />
+          )}
+        />
       </div>
     );
   }
